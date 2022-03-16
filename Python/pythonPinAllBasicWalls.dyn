@@ -12,7 +12,7 @@
     {
       "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
       "NodeType": "PythonScriptNode",
-      "Code": "import clr\r\nclr.AddReference(\"RevitAPI\")\r\n\r\nfrom Autodesk.Revit.DB import *\r\n\r\nclr.AddReference('RevitServices')\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\nbasicWalls = []\r\n\r\nallWalls = FilteredElementCollector(doc).OfClass(Wall).ToElements()\r\n\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\nfor wall in allWalls:\r\n\tif wall.WallType.Kind == WallKind.Basic:\r\n\t\twall.Pinned = True\r\n\t\tbasicWalls.append(wall)\r\nTransactionManager.Instance.TransactionTaskDone()\r\n\r\n# Assign your output to the OUT variable.\r\nOUT = basicWalls",
+      "Code": "import clr\r\nclr.AddReference(\"RevitAPI\")\r\n\r\nfrom Autodesk.Revit.DB import *\r\n\r\nclr.AddReference('RevitServices')\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\nbasicWalls = []\r\n\r\nallWalls = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().ToElements()\r\n\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\nfor wall in allWalls:\r\n\tif wall.WallType.Kind == WallKind.Basic:\r\n\t\twall.Pinned = True\r\n\t\tbasicWalls.append(wall)\r\nTransactionManager.Instance.TransactionTaskDone()\r\n\r\n# Assign your output to the OUT variable.\r\nOUT = basicWalls",
       "Engine": "IronPython2",
       "VariableInputPorts": true,
       "Id": "89a681a19d3d4db581daad2d945b994a",
@@ -98,13 +98,13 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 356.80000000000007,
-        "Y": 202.40000000000003
+        "X": 87.199999999999989,
+        "Y": 12.800000000000011
       }
     ],
     "Annotations": [],
-    "X": 0.0,
-    "Y": 0.0,
-    "Zoom": 1.0
+    "X": 275.89881870314053,
+    "Y": 219.26833198720303,
+    "Zoom": 1.7835993623828124
   }
 }

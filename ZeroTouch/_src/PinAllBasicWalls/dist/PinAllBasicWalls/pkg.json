@@ -1,0 +1,20 @@
+﻿{
+  "license": "",
+  "file_hash": null,
+  "name": "PinAllBasicWalls",
+  "version": "0.0.1",
+  "description": "This pins basic walls",
+  "group": "",
+  "keywords": null,
+  "dependencies": [],
+  "contents": "",
+  "engine_version": "2.2",
+  "engine": "dynamo",
+  "engine_metadata": "",
+  "site_url": "",
+  "repository_url": "",
+  "contains_binaries": true,
+  "node_libraries": [
+    "PinAllBasicWalls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
